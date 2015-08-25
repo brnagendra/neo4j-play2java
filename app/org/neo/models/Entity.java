@@ -47,5 +47,4 @@ public abstract class Entity {
         return (id == null) ? -1 : id.hashCode();
     }
 
-
 }

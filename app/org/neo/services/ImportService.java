@@ -31,8 +31,8 @@ public class ImportService {
     public void reload() {
         Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
         session.purgeDatabase();
-        schoolService.createOrUpdate(getTestSchoole());
-        //session.execute(load("school.cql"));
+        //schoolService.createOrUpdate(getTestSchoole());
+        session.execute(load("school.cql"));
 //       session.save(createNewSchool(), 1);
     }
     private School getTestSchoole() {

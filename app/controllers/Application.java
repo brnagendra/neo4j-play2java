@@ -21,10 +21,7 @@ public class Application extends Controller {
     }
 
 
-    public Result bootstrap() {
-        importService.reload();
-        return ok("Import success");
-    }
+
 
 
 }
