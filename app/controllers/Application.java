@@ -12,11 +12,7 @@ public class Application extends Controller {
     private ImportService importService;
 
     public Result index() {
-        try {
-            Class.forName("org.neo.models.School");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         return ok(index.render("Your new application is ready."));
     }
 
