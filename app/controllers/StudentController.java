@@ -1,5 +1,7 @@
 package controllers;
 
+import be.objectify.deadbolt.java.actions.Group;
+import be.objectify.deadbolt.java.actions.Restrict;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import org.neo.models.Student;
@@ -21,6 +23,12 @@ public class StudentController extends Controller {
     public Result create() {
         JsonNode data = request().body().asJson();
         Student student = Json.fromJson(data, Student.class);
+        studentService.createOrUpdate(student);
         return ok(Json.toJson(student));
+    }
+
+    @Restrict(@Group(Application.USER_ROLE))
+    public Result getStudents() {
+        return ok(Json.toJson(studentService.findAll()));
     }
 }
